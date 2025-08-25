@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laduma Building Materials</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { margin: 0; }
+    nav a {
+      color: white;
+      margin: 0 0.8rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+    
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: url("https://images.unsplash.com/photo-1581091012184-5c1e7d69fef1?auto=format&fit=crop&w=1400&q=80") no-repeat center/cover;
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+    }
+    .hero button {
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: #ff9800;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .hero button:hover { background: #e68900; }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #00796b;
+    }
+
+    /* Products */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .price {
+      font-weight: bold;
+      color: #00796b;
+      margin-top: 0.5rem;
+    }
+
+    /* Contact */
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, textarea, button {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      background: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover { background: #005b4f; }
+
+    footer {
+      text-align: center;
+      background: #00796b;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Laduma</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="home">
+    <h2>WHERE YOU SAVE AND SCORE</h2>
+    <p>Affordable materials for every project.</p>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+  </div>
+
+  <section id="products">
+    <h2>Products</h2>
+    <div class="products">
+      <div class="card">
+        <img src="IMG-20250818-WA0029.jpg" alt="Cement">
+        <h3>Cement 50kg</h3>
+        <p class="price">R90.00</p>
+      </div>
+      <div class="card">
+        <img src="IMG-20250819-WA0001.jpg" alt="Jojo Tank">
+        <h3>water tank (1000)</h3>
+        <p class="price">R1200.00</p>
+      </div>
+      <div class="card">
+        <img src="IMG-20250819-WA0002.jpg" alt="bathroom">
+        <h3>bathroom kit3m</h3>
+        <p class="price">R2400.00</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <ul>
+      <li>free advise on complementary products needed at different building phaces</li>
+      <li>Delivery to your site</li>
+      <li>credit facilities through various providers</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> BuildMart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Insert current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert("Thank you! We'll get back to you soon.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
